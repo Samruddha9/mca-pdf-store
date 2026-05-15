@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Your MCA Micro PDF</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { background-color: #0f172a !important; color: white !important; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .download-box { background: #1e293b; padding: 40px; border-radius: 20px; border: 2px solid #10b981; text-align: center; max-width: 500px; width: 90%; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3); }
+        .success-icon { font-size: 50px; margin-bottom: 15px; }
+        .buy-btn { display: inline-block; background-color: #10b981 !important; color: white !important; padding: 15px 30px; border-radius: 10px; text-decoration: none; font-weight: bold; margin-top: 20px; transition: transform 0.2s; }
+        .buy-btn:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body>
+
+<div class="download-box">
+    <div class="success-icon">✅</div>
+    <h1 id="title">Payment Successful!</h1>
+    <p id="msg">Your MCA Micro PDF is ready for download.</p>
+    
+    <a href="#" id="download-btn" class="buy-btn" style="display: none;">Download PDF Now</a>
+    
+    <div id="error-area" style="display: none; color: #f87171; margin-top: 20px;">
+        <p>We couldn't find your specific file. Please check your link or contact support.</p>
+    </div>
+
+    <br><br>
+    <a href="index.html" style="color: #94a3b8; text-decoration: none; font-size: 0.8rem;">Return to Home</a>
+</div>
+
+<script>
+    // LIST OF ALL 16 SUBJECTS
+    // Key (left) = what you put in Razorpay URL
+    // Value (right) = your actual PDF filename in Vercel
+    const pdfFiles = {
+        
+        "AWD": "awd-dev.pdf",
+        "CAPI": "cloud-api.pdf",
+        "CMIG": "cloud-migration.pdf",
+        "DAA": "daa-algo.pdf",
+        "ADBMS": "a-dbms.pdf",
+        "DSA": "data-structures.pdf",
+        "JAVA": "java.programming.pdf",
+        "OB": "organization-behaviour.pdf",
+        "PY": "python-mca.pdf", // First Python file
+        "PYPROG": "python-programs.pdf", // Second Python file (renamed key)
+        "SEPM": "se-pm.pdf",
+        "SMM": "social-media-marketing.pdf",
+        "STQA": "software-testing-quality-assurance.pdf",
+        "WD": "web-devlopment.pdf",
+        "RM": "relationship-management.pdf",
+        "JS": "java-script.pdf"
+        };
+
+    // Get the 'sub' parameter from the URL (e.g. success.html?sub=java)
+    const urlParams = new URLSearchParams(window.location.search);
+    const subCode = urlParams.get('sub');
+
+    const btn = document.getElementById('download-btn');
+    const error = document.getElementById('error-area');
+
+    if (subCode && pdfFiles[subCode]) {
+        btn.href = pdfFiles[subCode];
+        
+        // This 'download' attribute is what tells the browser to save to the folder
+        btn.setAttribute('download', pdfFiles[subCode]); 
+        
+        btn.style.display = 'inline-block';
+        btn.innerText = "Download " + subCode.toUpperCase() + " PDF";
+        
+        // Optional: Add this to force it to open in a new window if download fails
+        btn.target = "_blank"; 
+    }
+</script>
+
+</body>
+</html>

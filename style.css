@@ -1,0 +1,83 @@
+/* FINAL STABILIZED CSS */
+
+:root {
+    --bg-color: #0f172a;       /* Deep Dark Background */
+    --card-bg: #ffffff;        /* Keeping cards white for contrast */
+    --primary-blue: #007bff;
+    --text-dark: #1e293b;      /* Dark color for text inside white cards */
+    --price-green: #28a745;
+}
+
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background-color: var(--bg-color); /* This makes the whole page dark */
+    margin: 0; 
+    padding: 0;
+    color: white; /* Header text will be white */
+}
+
+/* Header area stays dark with white text */
+.container { 
+    max-width: 1100px; 
+    margin: auto; 
+    text-align: center; 
+    padding: 50px 20px;
+}
+
+h1 { color: #ffffff; margin-bottom: 10px; }
+.subtitle { color: #94a3b8; margin-bottom: 40px; }
+
+/* Grid setup */
+.grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 25px; 
+}
+
+/* THE CARD FIX: Ensuring names are visible */
+.pdf-card { 
+    background: var(--card-bg); /* White background for the card */
+    padding: 30px; 
+    border-radius: 16px; 
+    transition: transform 0.2s;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pdf-card:hover { transform: translateY(-8px); }
+
+.pdf-icon { font-size: 50px; margin-bottom: 15px; opacity: 0.8; }
+
+/* Making the subject names DARK so they show up on the white card */
+.pdf-title { 
+    color: var(--text-dark) !important; 
+    font-weight: 700; 
+    font-size: 1.1rem; 
+    margin-bottom: 10px;
+    display: block;
+}
+
+.price { 
+    color: var(--price-green); 
+    font-weight: 800; 
+    font-size: 1.3rem; 
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* Button Styling */
+.buy-btn { 
+    background-color: var(--primary-blue); 
+    color: white !important; 
+    text-decoration: none; 
+    padding: 12px 25px; 
+    border-radius: 8px; 
+    font-weight: 600;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background 0.2s;
+}
+
+.buy-btn:hover { background-color: #ea302a; }
