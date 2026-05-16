@@ -20,7 +20,7 @@
     <h1 id="title">Payment Successful!</h1>
     <p id="msg">Your MCA Micro PDF is ready for download.</p>
     
-    <a href="#" id="download-btn" class="buy-btn" style="display: none;">Download PDF Now</a>
+    <a href="#" id="download-btn" class="buy-btn" style="display: none;" download>Download PDF Now</a>
     
     <div id="error-area" style="display: none; color: #f87171; margin-top: 20px;">
         <p>We couldn't find your specific file. Please check your link or contact support.</p>
@@ -31,7 +31,7 @@
 </div>
 
 <script>
-    // LIST OF ALL 16 SUBJECTS - CORRECTED TO DIRECT DOWNLOAD LINKS
+    // LIST OF ALL 16 SUBJECTS - DIRECT DOWNLOAD LINKS
     const pdfFiles = {
         "AWD": "awd-dev.pdf",
         "CAPI": "https://drive.google.com/uc?export=download&id=16yptIteb5CaOaPoNi9Fiy1OrTvvb7xYD",
@@ -51,7 +51,6 @@
         "JS": "java-script.pdf"
     };
 
-    // Get the 'sub' parameter from the URL
     const urlParams = new URLSearchParams(window.location.search);
     const subCode = urlParams.get('sub');
 
@@ -61,8 +60,8 @@
     if (subCode && pdfFiles[subCode]) {
         btn.href = pdfFiles[subCode];
         
-        // This opens a clean anchor fire to force immediate background retrieval
-        btn.target = "_self"; 
+        // Let the browser naturally open the download link in a brand new tab to execute 
+        btn.target = "_blank"; 
         
         btn.style.display = 'inline-block';
         btn.innerText = "Download " + subCode.toUpperCase() + " PDF";
