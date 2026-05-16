@@ -31,28 +31,25 @@
 </div>
 
 <script>
-    // LIST OF ALL 16 SUBJECTS
-    // Key (left) = what you put in Razorpay URL
-    // Value (right) = your actual PDF filename in Vercel
+    // LIST OF ALL 16 SUBJECTS WITH LIVE BLOB LINKS (UPDATED MATCHING .pdf.pdf)
     const pdfFiles = {
-        
         "AWD": "awd-dev.pdf",
-        "CAPI": "https://jmbl8z1obecsbxup.public.blob.vercel-storage.com/cloud-api.pdf?download=1",
+        "CAPI": "https://jmbl8z1obecsbxup.public.blob.vercel-storage.com/cloud-api.pdf.pdf?download=1",
         "CMIG": "cloud-migration.pdf",
         "DAA": "daa-algo.pdf",
         "ADBMS": "a-dbms.pdf",
         "DSA": "data-structures.pdf",
         "JAVA": "java.programming.pdf",
         "OB": "organization-behaviour.pdf",
-        "PY": "python-mca.pdf", // First Python file
-        "PYPROG": "python-programs.pdf", // Second Python file (renamed key)
+        "PY": "python-mca.pdf", 
+        "PYPROG": "python-programs.pdf", 
         "SEPM": "se-pm.pdf",
         "SMM": "social-media-marketing.pdf",
         "STQA": "software-testing-quality-assurance.pdf",
-        "WD": "https://jmbl8z1obecsbxup.public.blob.vercel-storage.com/web-devlopement.pdf?download=1",
+        "WD": "https://jmbl8z1obecsbxup.public.blob.vercel-storage.com/web-devlopement.pdf.pdf?download=1",
         "RM": "relationship-management.pdf",
         "JS": "java-script.pdf"
-        };
+    };
 
     // Get the 'sub' parameter from the URL (e.g. success.html?sub=CAPI)
     const urlParams = new URLSearchParams(window.location.search);
@@ -65,11 +62,8 @@
         btn.href = pdfFiles[subCode];
         btn.style.display = 'inline-block';
         btn.innerText = "Download " + subCode.toUpperCase() + " PDF";
-        
-        // Securely opens the cloud-hosted file directly in a new tab to bypass local browser rendering bugs
-        btn.target = "_blank"; 
     } else {
-        error.style.display = 'block'; 
+        error.style.display = 'block';
     }
 </script>
 
