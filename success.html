@@ -31,7 +31,7 @@
 </div>
 
 <script>
-    // LIST OF ALL 16 SUBJECTS WITH LIVE BLOB LINKS (UPDATED MATCHING .pdf.pdf)
+    // LIST OF ALL 16 SUBJECTS WITH LIVE BLOB LINKS
     const pdfFiles = {
         "AWD": "awd-dev.pdf",
         "CAPI": "https://jmbl8z1obecsbxup.public.blob.vercel-storage.com/cloud-api.pdf.pdf?download=1",
@@ -59,7 +59,12 @@
     const error = document.getElementById('error-area');
 
     if (subCode && pdfFiles[subCode]) {
+        // Set the href to the Vercel link
         btn.href = pdfFiles[subCode];
+        
+        // Explicitly set download attributes to block browser viewing
+        btn.setAttribute('download', '');
+        
         btn.style.display = 'inline-block';
         btn.innerText = "Download " + subCode.toUpperCase() + " PDF";
     } else {
