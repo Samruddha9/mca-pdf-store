@@ -31,11 +31,10 @@
 </div>
 
 <script>
-    // RENAMED KEYS TO FORCE THE BROWSER TO FORGET OLD ERRORS
+    // LIST OF ALL 16 SUBJECTS - FIXED USING TRUSTED PUBLIC WEB VIEW LINKS
     const pdfFiles = {
         "AWD": "awd-dev.pdf",
         "CAPI": "https://drive.google.com/file/d/16yptIteb5CaOaPoNi9Fiy1OrTvvb7xYD/view?usp=sharing",
-        "CAPI2": "https://drive.google.com/file/d/16yptIteb5CaOaPoNi9Fiy1OrTvvb7xYD/view?usp=sharing",
         "CMIG": "cloud-migration.pdf",
         "DAA": "daa-algo.pdf",
         "ADBMS": "a-dbms.pdf",
@@ -48,7 +47,6 @@
         "SMM": "social-media-marketing.pdf",
         "STQA": "software-testing-quality-assurance.pdf",
         "WD": "https://drive.google.com/file/d/1CS0vaFpjK5sNTdob_HNRbF8cilzxD9NM/view?usp=sharing",
-        "WD2": "https://drive.google.com/file/d/1CS0vaFpjK5sNTdob_HNRbF8cilzxD9NM/view?usp=sharing",
         "RM": "relationship-management.pdf",
         "JS": "java-script.pdf"
     };
@@ -61,9 +59,12 @@
 
     if (subCode && pdfFiles[subCode]) {
         btn.href = pdfFiles[subCode];
+        
+        // Opens the trusted Google Drive panel safely in a clean layout window
         btn.target = "_blank"; 
+        
         btn.style.display = 'inline-block';
-        btn.innerText = "Download " + subCode.toUpperCase().replace('2', '') + " PDF";
+        btn.innerText = "Download " + subCode.toUpperCase() + " PDF";
     } else {
         error.style.display = 'block';
     }
