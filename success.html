@@ -31,10 +31,10 @@
 </div>
 
 <script>
-    // LIST OF ALL 16 SUBJECTS WITH LIVE BLOB LINKS
+    // LIST OF ALL 16 SUBJECTS - CORRECTED TO DIRECT DOWNLOAD LINKS
     const pdfFiles = {
         "AWD": "awd-dev.pdf",
-        "CAPI": "https://drive.google.com/file/d/16yptIteb5CaOaPoNi9Fiy1OrTvvb7xYD/view?usp=drive_link",
+        "CAPI": "https://drive.google.com/uc?export=download&id=16yptIteb5CaOaPoNi9Fiy1OrTvvb7xYD",
         "CMIG": "cloud-migration.pdf",
         "DAA": "daa-algo.pdf",
         "ADBMS": "a-dbms.pdf",
@@ -46,7 +46,7 @@
         "SEPM": "se-pm.pdf",
         "SMM": "social-media-marketing.pdf",
         "STQA": "software-testing-quality-assurance.pdf",
-        "WD": "https://drive.google.com/file/d/1CS0vaFpjK5sNTdob_HNRbF8cilzxD9NM/view?usp=drive_link",
+        "WD": "https://drive.google.com/uc?export=download&id=1CS0vaFpjK5sNTdob_HNRbF8cilzxD9NM",
         "RM": "relationship-management.pdf",
         "JS": "java-script.pdf"
     };
@@ -59,11 +59,10 @@
     const error = document.getElementById('error-area');
 
     if (subCode && pdfFiles[subCode]) {
-        // Direct assignment to the anchor tag
         btn.href = pdfFiles[subCode];
         
-        // Tells the browser to open the secure download URL in a brand new window cleanly
-        btn.target = "_blank"; 
+        // This opens a clean anchor fire to force immediate background retrieval
+        btn.target = "_self"; 
         
         btn.style.display = 'inline-block';
         btn.innerText = "Download " + subCode.toUpperCase() + " PDF";
