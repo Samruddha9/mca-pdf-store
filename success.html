@@ -20,7 +20,7 @@
     <h1 id="title">Payment Successful!</h1>
     <p id="msg">Your MCA Micro PDF is ready for download.</p>
     
-    <a href="#" id="download-btn" class="buy-btn" style="display: none;">Download PDF Now</a>
+    <a href="#" id="download-btn" class="buy-btn" style="display: inline-block;">Download PDF Now</a>
     
     <div id="error-area" style="display: none; color: #f87171; margin-top: 20px;">
         <p>We couldn't find your specific file. Please check your link or contact support.</p>
@@ -31,7 +31,7 @@
 </div>
 
 <script>
-    // RENAMED KEYS TO FORCE THE BROWSER TO FORGET OLD ERRORS
+    // BOTH ORIGINAL AND NEW SUB CODES POINTING SAFELY TO GOOGLE DRIVE
     const pdfFiles = {
         "AWD": "awd-dev.pdf",
         "CAPI": "https://drive.google.com/file/d/16yptIteb5CaOaPoNi9Fiy1OrTvvb7xYD/view?usp=sharing",
@@ -62,10 +62,12 @@
     if (subCode && pdfFiles[subCode]) {
         btn.href = pdfFiles[subCode];
         btn.target = "_blank"; 
-        btn.style.display = 'inline-block';
         btn.innerText = "Download " + subCode.toUpperCase().replace('2', '') + " PDF";
     } else {
-        error.style.display = 'block';
+        // Fallback default just in case a user arrives here with a broken link
+        btn.href = "https://drive.google.com/file/d/16yptIteb5CaOaPoNi9Fiy1OrTvvb7xYD/view?usp=sharing";
+        btn.target = "_blank";
+        btn.innerText = "Download PDF Now";
     }
 </script>
 
