@@ -51,7 +51,7 @@
         "JS": "java-script.pdf"
     };
 
-    // Get the 'sub' parameter from the URL (e.g. success.html?sub=CAPI)
+    // Get the 'sub' parameter from the URL
     const urlParams = new URLSearchParams(window.location.search);
     const subCode = urlParams.get('sub');
 
@@ -59,11 +59,11 @@
     const error = document.getElementById('error-area');
 
     if (subCode && pdfFiles[subCode]) {
-        // Set the href to the Vercel link
+        // Direct assignment to the anchor tag
         btn.href = pdfFiles[subCode];
         
-        // Explicitly set download attributes to block browser viewing
-        btn.setAttribute('download', '');
+        // Tells the browser to open the secure download URL in a brand new window cleanly
+        btn.target = "_blank"; 
         
         btn.style.display = 'inline-block';
         btn.innerText = "Download " + subCode.toUpperCase() + " PDF";
