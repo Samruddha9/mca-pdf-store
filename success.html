@@ -37,7 +37,7 @@
     const pdfFiles = {
         
         "AWD": "awd-dev.pdf",
-        "CAPI": "cloud-api.pdf",
+        "CAPI": "https://jmbl8z1obecsbxup.public.blob.vercel-storage.com/cloud-api.pdf",
         "CMIG": "cloud-migration.pdf",
         "DAA": "daa-algo.pdf",
         "ADBMS": "a-dbms.pdf",
@@ -49,12 +49,12 @@
         "SEPM": "se-pm.pdf",
         "SMM": "social-media-marketing.pdf",
         "STQA": "software-testing-quality-assurance.pdf",
-        "WD": "web-devlopment.pdf",
+        "WD": "https://jmbl8z1obecsbxup.public.blob.vercel-storage.com/web-devlopement.pdf",
         "RM": "relationship-management.pdf",
         "JS": "java-script.pdf"
         };
 
-    // Get the 'sub' parameter from the URL (e.g. success.html?sub=java)
+    // Get the 'sub' parameter from the URL (e.g. success.html?sub=CAPI)
     const urlParams = new URLSearchParams(window.location.search);
     const subCode = urlParams.get('sub');
 
@@ -63,15 +63,13 @@
 
     if (subCode && pdfFiles[subCode]) {
         btn.href = pdfFiles[subCode];
-        
-        // This 'download' attribute is what tells the browser to save to the folder
-        btn.setAttribute('download', pdfFiles[subCode]); 
-        
         btn.style.display = 'inline-block';
         btn.innerText = "Download " + subCode.toUpperCase() + " PDF";
         
-        // Optional: Add this to force it to open in a new window if download fails
+        // Securely opens the cloud-hosted file directly in a new tab to bypass local browser rendering bugs
         btn.target = "_blank"; 
+    } else {
+        error.style.display = 'block'; 
     }
 </script>
 
