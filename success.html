@@ -20,7 +20,7 @@
     <h1 id="title">Payment Successful!</h1>
     <p id="msg">Your MCA Micro PDF is ready for download.</p>
     
-    <a href="#" id="download-btn" class="buy-btn" style="display: none;" download>Download PDF Now</a>
+    <a href="#" id="download-btn" class="buy-btn" style="display: none;">Download PDF Now</a>
     
     <div id="error-area" style="display: none; color: #f87171; margin-top: 20px;">
         <p>We couldn't find your specific file. Please check your link or contact support.</p>
@@ -31,10 +31,10 @@
 </div>
 
 <script>
-    // LIST OF ALL 16 SUBJECTS - DIRECT DOWNLOAD LINKS
+    // LIST OF ALL 16 SUBJECTS - FIXED USING TRUSTED PUBLIC WEB VIEW LINKS
     const pdfFiles = {
         "AWD": "awd-dev.pdf",
-        "CAPI": "https://drive.google.com/uc?export=download&id=16yptIteb5CaOaPoNi9Fiy1OrTvvb7xYD",
+        "CAPI": "https://drive.google.com/file/d/16yptIteb5CaOaPoNi9Fiy1OrTvvb7xYD/view?usp=sharing",
         "CMIG": "cloud-migration.pdf",
         "DAA": "daa-algo.pdf",
         "ADBMS": "a-dbms.pdf",
@@ -46,7 +46,7 @@
         "SEPM": "se-pm.pdf",
         "SMM": "social-media-marketing.pdf",
         "STQA": "software-testing-quality-assurance.pdf",
-        "WD": "https://drive.google.com/uc?export=download&id=1CS0vaFpjK5sNTdob_HNRbF8cilzxD9NM",
+        "WD": "https://drive.google.com/file/d/1CS0vaFpjK5sNTdob_HNRbF8cilzxD9NM/view?usp=sharing",
         "RM": "relationship-management.pdf",
         "JS": "java-script.pdf"
     };
@@ -60,7 +60,7 @@
     if (subCode && pdfFiles[subCode]) {
         btn.href = pdfFiles[subCode];
         
-        // Let the browser naturally open the download link in a brand new tab to execute 
+        // Opens the trusted Google Drive panel safely in a clean layout window
         btn.target = "_blank"; 
         
         btn.style.display = 'inline-block';
